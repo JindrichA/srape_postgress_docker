@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Gallery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.get('/mytable', function(data) {
+                var records = JSON.parse(data).records;
+                for (var i = 0; i < records.length; i++) {
+                    var record = records[i];
+                    var img = $('<img>').attr('src', record.img_url);
+                    var title = $('<h3>').text(record.title);
+                    var container = $('<div>').addClass('image-container').append(title, img);
+                    $('#gallery').append(container);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="gallery"></div>
+</body>
+</html>

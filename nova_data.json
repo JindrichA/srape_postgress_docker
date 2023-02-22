@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Sunset",
+    "url": "https://example.com/images/sunset.jpg"
+  },
+  {
+    "title": "Mountain",
+    "url": "https://example.com/images/mountain.jpg"
+  },
+  {
+    "title": "Beach",
+    "url": "https://example.com/images/beach.jpg"
+  },
+  {
+    "title": "Cityscape",
+    "url": "https://example.com/images/cityscape.jpg"
+  },
+  {
+    "title": "Nature",
+    "url": "https://example.com/images/nature.jpg"
+  },
+  {
+    "title": "Architecture",
+    "url": "https://example.com/images/architecture.jpg"
+  },
+  {
+    "title": "Food",
+    "url": "https://example.com/images/food.jpg"
+  },
+  {
+    "title": "Animal",
+    "url": "https://example.com/images/animal.jpg"
+  },
+  {
+    "title": "Art",
+    "url": "https://example.com/images/art.jpg"
+  },
+  {
+    "title": "Technology",
+    "url": "https://example.com/images/technology.jpg"
+  }
+]

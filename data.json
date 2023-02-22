@@ -1,0 +1,44 @@
+{
+  "records": [
+    {
+      "title": "Beautiful sunset",
+      "img_url": "https://example.com/images/sunset.jpg"
+    },
+    {
+      "title": "Cute puppy",
+      "img_url": "https://example.com/images/puppy.jpg"
+    },
+    {
+      "title": "Starry night",
+      "img_url": "https://example.com/images/starry-night.jpg"
+    },
+    {
+      "title": "Mountain landscape",
+      "img_url": "https://example.com/images/mountain.jpg"
+    },
+    {
+      "title": "Flower garden",
+      "img_url": "https://example.com/images/flowers.jpg"
+    },
+    {
+      "title": "Sunny beach",
+      "img_url": "https://example.com/images/beach.jpg"
+    },
+    {
+      "title": "City skyline",
+      "img_url": "https://example.com/images/city.jpg"
+    },
+    {
+      "title": "Colorful autumn leaves",
+      "img_url": "https://example.com/images/autumn.jpg"
+    },
+    {
+      "title": "Wildlife safari",
+      "img_url": "https://example.com/images/safari.jpg"
+    },
+    {
+      "title": "Space exploration",
+      "img_url": "https://example.com/images/space.jpg"
+    }
+  ]
+}
