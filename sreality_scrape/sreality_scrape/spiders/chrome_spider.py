@@ -1,3 +1,5 @@
+import json
+import re
 import scrapy
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -7,13 +9,11 @@ chrome_options.add_argument('--no-sandbox')
 chrome_options.add_argument('--disable-dev-shm-usage')
 #driver = webdriver.Chrome('/usr/lib/chromium-browser/chromedriver', options=chrome_options)
 
-import json
-import re
+
 
 class MySpider(scrapy.Spider):
     name = "myspider"
     start_urls = [f"https://www.sreality.cz/api/cs/v2/estates?category_main_cb=1&category_type_cb=1&per_page=50&page=:{i}"for i in range(10)]
-
 
     def __init__(self):
         options = webdriver.ChromeOptions()
@@ -32,22 +32,18 @@ class MySpider(scrapy.Spider):
         #print(self.items)
         string = self.html_content
 
-
         jeden_inzerat_start = r'{"dynamicDown":'
         jeden_inzerat_end = r'"_links": '
         pattern_inzerat = f"{jeden_inzerat_start}(.*?){jeden_inzerat_end}"
         matches_inzerat = re.findall(pattern_inzerat, string)
 
         for match_inzerat in matches_inzerat:
-            # print(match_inzerat)
-
             start = r'"rus": false, "name": '
             end = r'"region_tip":'
             pattern = f"{start}(.*?){end}"
             matches = re.findall(pattern, match_inzerat)
             for match in matches:
                 print(match)
-
             start_img = 'https://'
             end_img = r'.jpeg'
             pattern_img = f"{start_img}(.*?){end_img}"
@@ -68,6 +64,4 @@ class MySpider(scrapy.Spider):
         with open('../../static/data.json', 'a') as f:
                 json_data = json.dumps(self.dict_of_urls_and_img)
                 f.write(json_data)
-        #print("Konec")
-        #print(self.items)
         self.driver.quit()
