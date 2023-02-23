@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <meta charset="UTF-8">
@@ -8,50 +9,25 @@
     <h1>My List Page</h1>
     <div id="list-container"></div>
 
-    <script>
-      function loadJsonAndRender() {
-  // Make a request to the Flask endpoint to get the JSON data
-  fetch('/get_json_data')
-    .then(response => response.json())
-    .then(jsonData => {
-      // Get the HTML element where we'll render the list
-      const listContainer = document.getElementById('list-container');
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
-      // Create a new unordered list element to hold the titles, URLs, and images
-      const listElement = document.createElement('ul');
-
-      // Loop through each item in the JSON data and add it to the list
-      jsonData.forEach(item => {
-        // Create a new list item element
-        const listItem = document.createElement('li');
-
-        // Create a new anchor element with the URL and title
-        const linkElement = document.createElement('a');
-        linkElement.href = item.url;
-        linkElement.innerHTML = item.title;
-
-        // Create a new image element with the image URL and alt text
-        const imageElement = document.createElement('img');
-        imageElement.src = item.image;
-        imageElement.alt = item.title;
-
-        // Add the anchor and image elements to the list item
-        listItem.appendChild(linkElement);
-        listItem.appendChild(imageElement);
-
-        // Add the list item to the list
-        listElement.appendChild(listItem);
+      <script>
+      // Loop through all text elements on the page
+      document.querySelectorAll("body *:not(script)").forEach(element => {
+        if (element.childNodes.length === 1 && element.childNodes[0].nodeType === Node.TEXT_NODE) {
+          // Get the text content of the element
+          const text = element.childNodes[0].textContent;
+          // Replace the Unicode characters with their corresponding HTML entities
+          const html = text
+            .replace(/\u00a0/g, "&nbsp;")
+            .replace(/\u00b2/g, "&sup2;");
+          // Set the HTML content of the element
+          element.innerHTML = html;
+        }
       });
-
-      // Add the list to the HTML element
-      listContainer.appendChild(listElement);
-    })
-    .catch(error => {
-      console.error('Error loading JSON data:', error);
-    });
-}
-
-      loadJsonAndRender();
     </script>
+
+
+
   </body>
 </html>

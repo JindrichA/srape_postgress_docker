@@ -1,7 +1,6 @@
 import time
 import redis
 from flask import Flask, render_template, jsonify
-import psycopg2
 import json
 
 import databse_control
@@ -13,6 +12,9 @@ app = Flask(__name__)
 def index():
 
     return render_template('index.html')
+
+
+
 
 @app.route('/get_json_data')
 def get_json_data():
@@ -33,5 +35,5 @@ def save_to_db():
 
 if __name__ == '__main__':
 
-    databse_control.save_json_to_table("static/data.json")
+
     app.run()
